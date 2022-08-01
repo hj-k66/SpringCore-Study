@@ -28,4 +28,29 @@ public class SingletonTest {
         //memberService1 != memberService2
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
     }
+
+
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    public void singletonServiceTest(){
+        //컴파일 에러 : SingletonService() has private access
+        // private으로 생성자 막아두어서
+       //  new SingletonService();
+        //1. 조회 : 호출할 때마다 같은 객체 반환
+        SingletonService singletonService1 = SingletonService.getInstance();
+        //2. 조회 : 호출할 때마다 같은 객체 반환
+        SingletonService singletonService2 = SingletonService.getInstance();
+
+
+        //참조값이 다른 것 확인
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
+
+        //테스트 자동화
+        //singletonService1 != singletonService2
+        Assertions.assertThat(singletonService1).isSameAs(singletonService2);
+
+        singletonService1.logic();
+
+    }
 }
