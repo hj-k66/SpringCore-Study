@@ -26,7 +26,7 @@ class StatefulServiceTest {
         System.out.println("price = " + price);
 
         //사용자A는 10000원 기대했지만, 20000만원 출력
-        Assertions.assertThat(statefulService1.getPrice()).isEqualTo(10000);
+        Assertions.assertThat(statefulService1.getPrice()).isEqualTo(20000);
 
 
     }
